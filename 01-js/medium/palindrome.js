@@ -4,7 +4,15 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let arr = str.toUpperCase().split("")
+  let filteredArr = arr.filter(val => val != " " && val != "," && val != "." && val!="!" && val!="?");
+  let reversedArr = [...filteredArr].reverse();
+  
+  // console.log(filteredArr.join(""));
+  // console.log(reversedArr.join(""))
+  return filteredArr.join("") === reversedArr.join("");
+  // return str === str.split("").reverse().join("");
 }
 
+console.log(isPalindrome("Able, was I ere I saw Elba!"));
 module.exports = isPalindrome;

@@ -16,6 +16,56 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result = this.result * num;
+  }
+  divide(num) {
+    if(num==0) {
+      throw new Error("Can't divide by zero"); 
+    }
+    this.result = this.result / num;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  removeSpace(str)
+  {
+   let newStr="";
+   for(let i=0;i<str.length;i++)
+   {
+     if(str[i]!==' ')
+     newStr+=str[i]; 
+   }
+   return newStr; 
+  }
+  calculate(string)
+  {
+    string = this.removeSpace(string); 
+    const evalResult = eval(string); 
+    if(evalResult===Infinity)
+    throw new Error(); 
+    this.result = evalResult;
+  }
+
+}
+
+let calc;
+calc = new Calculator();
+calc.clear();
+calc.add(5);
+console.log(calc.getResult());
 
 module.exports = Calculator;
